@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import CustomLink from "./CustomLink";
+import PlayButton from "./PlayButton";
 
 const CardSection = ({ title, data }) => {
 	return (
@@ -12,10 +14,15 @@ const CardSection = ({ title, data }) => {
 
 export const Card = ({ data }) => {
 	return (
-		<CardWrap>
-			<CardImage src={data.image} />
-			<CardName>{data.name}</CardName>
-		</CardWrap>
+		<CustomLink to="/">
+			<CardWrap>
+				<div style={{ position: "relative" }}>
+					<CardImage src={data.image} />
+					<PlayButton style={{ position: "absolute", bottom: 10, right: 10 }} />
+				</div>
+				<CardName>{data.name}</CardName>
+			</CardWrap>
+		</CustomLink>
 	);
 };
 
@@ -42,11 +49,15 @@ const Section = styled.div`
 
 const CardWrap = styled.div`
 	width: 100%;
-	transition: background 250ms ease;
-	padding: 20px 10px;
+	transition: transform 250ms ease;
+	position: relative;
 
 	&:hover {
-		background-color: ${(props) => props.theme.grey};
+		transform: scale(1.05);
+	}
+
+	> ${PlayButton} {
+		background-color: white;
 	}
 `;
 
@@ -63,5 +74,10 @@ const CardName = styled.h2`
 	line-height: 14px;
 	color: ${(props) => props.theme.white};
 `;
+
+// const CustomPlayButton = styled(PlayButton)`
+// 	position: absolute;
+// 	top: 0;
+// `;
 
 export default CardSection;

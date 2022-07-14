@@ -11,6 +11,7 @@ import { ReactComponent as StationsIcon } from "./stations.svg";
 import { ReactComponent as TopMusicIcon } from "./top-music.svg";
 import { ReactComponent as RecentlyPlayedIcon } from "./recently-played.svg";
 import { ReactComponent as MyPlaylistIcon } from "./my-playlist.svg";
+import { ReactComponent as PlayIcon } from "./play.svg";
 
 export {
 	HomeIcon,
@@ -26,4 +27,5 @@ export {
 	TopMusicIcon,
 	RecentlyPlayedIcon,
 	MyPlaylistIcon,
+	PlayIcon,
 };
