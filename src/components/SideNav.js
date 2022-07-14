@@ -167,7 +167,7 @@ const TitleNavItems = styled(NavItems)`
 const NavItem = styled.li`
 	display: flex;
 	color: ${(props) => props.theme.white};
-	opacity: 0.5;
+	opacity: 0.7;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 15px;
@@ -180,6 +180,10 @@ const NavItem = styled.li`
 		margin-right: 10px;
 		width: 30px;
 		height: 30px;
+	}
+
+	path {
+		fill: ${(props) => props.theme.white};
 	}
 
 	&:hover {

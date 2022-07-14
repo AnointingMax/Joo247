@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-const PageWrapper = ({ children }) => {
-	return <Wrapper id="page-wrapper">{children}</Wrapper>;
+const PageWrapper = ({ children, ...others }) => {
+	return <Wrapper {...others}>{children}</Wrapper>;
 };
 
 const Wrapper = styled(motion.div)`
-	margin-left: ${(props) => props.theme.sideBarWidth};
+	margin-left: ${({ page, theme }) =>
+		page === "home" ? 0 : theme.sideBarWidth};
 	padding-inline: 20px;
 `;
 

@@ -5,8 +5,10 @@ import CustomInput from "./CustomInput";
 import { RiSearchLine } from "react-icons/ri";
 import styled from "styled-components";
 import { device } from "../constants";
+import { useAppContext } from "../context/AppContext";
 
 const TopNav = ({ blur }) => {
+	const { isLoggedIn } = useAppContext();
 	const [search, setSearch] = useState("");
 
 	return (
@@ -14,10 +16,13 @@ const TopNav = ({ blur }) => {
 			<Link to="/">
 				<Logo src={logo} alt="logo" />
 			</Link>
-			<NavLinks role="list">
-				<NavLink>Login</NavLink>
-				<NavLink>Sign Up</NavLink>
-			</NavLinks>
+			{!isLoggedIn && (
+				<NavLinks role="list">
+					<NavLink>Login</NavLink>
+					<NavLink>Sign Up</NavLink>
+				</NavLinks>
+			)}
+
 			<CustomInput
 				className="ml-auto"
 				value={search}
@@ -36,6 +41,7 @@ const Nav = styled.nav`
 	position: sticky;
 	top: 0;
 	transition: all 1s ease;
+	z-index: 1000;
 
 	${({ blur }) =>
 		blur &&

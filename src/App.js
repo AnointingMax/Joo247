@@ -1,18 +1,18 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import { AppContext } from "./context";
+import AppProvider from "./context/AppContext";
 import "./App.css";
-import { TopNav, SideNav } from "./components";
-import Animated from "./pages";
-import styled, { ThemeProvider } from "styled-components";
-import { useEffect, useMemo, useState } from "react";
-import heroBackground from "./images/hero-background.png";
-import { device } from "./constants";
+import { ThemeProvider } from "styled-components";
+import { useEffect, useMemo } from "react";
+import AppWrapper from "./pages";
 
 function App() {
-	const [blur, setBlur] = useState(false);
-
 	useEffect(() => {
-		document.body.style.backgroundColor = "#141414";
+		var obj = document.querySelector("body");
+		// obj.setAttribute(
+		// 	"style",
+		// 	"background: linear-gradient(17.23deg, #E4410A 14.33%, #FFBC1D 70.2%);"
+		// );
+		obj.setAttribute("style", "background-color: #141414;");
 	}, []);
 
 	const theme = useMemo(
@@ -27,53 +27,15 @@ function App() {
 		[]
 	);
 
-	const changeBackground = (event) => {
-		const { scrollTop } = event.target;
-
-		if (scrollTop >= 5) {
-			setBlur(true);
-		} else {
-			setBlur(false);
-		}
-	};
-
 	return (
 		<ThemeProvider theme={theme}>
-			<AppContext>
+			<AppProvider>
 				<Router>
-					<AppWrapper onScroll={changeBackground}>
-						<TopNav blur={blur} />
-						<SideNav />
-						<Animated />
-					</AppWrapper>
+					<AppWrapper />
 				</Router>
-			</AppContext>
+			</AppProvider>
 		</ThemeProvider>
 	);
 }
-
-const AppWrapper = styled.div`
-	width: 100%;
-	height: 100vh;
-	overflow-y: scroll;
-
-	&:after {
-		content: "";
-		z-index: -1;
-		position: absolute;
-		inset: 0;
-		background-image: url(${heroBackground});
-		background-repeat: no-repeat;
-		background-position: bottom right;
-		background-size: contain;
-	}
-
-	@media ${device.tablet} {
-		&:after {
-			background-position: center center;
-			background-size: 100% auto;
-		}
-	}
-`;
 
 export default App;

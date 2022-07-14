@@ -1,59 +1,14 @@
-import { PageWrapper } from "../components";
+import { CardSection, Carousel, PageWrapper } from "../components";
+import { albums } from "../constants/dummyData";
 
 const Home = () => {
 	return (
 		<PageWrapper>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
-			<h1>Hello world</h1>
+			<Carousel half />
+			<CardSection title="Now Trending" data={albums} />
+			<CardSection title="Favourites" data={albums} />
+			<CardSection title="Recently Played" data={albums} />
+			<CardSection title="Just for you" data={albums} />
 		</PageWrapper>
 	);
 };

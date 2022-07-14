@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { PageWrapper } from "../components";
 
 const Album = () => {
 	return (
-		<motion.div exit={{ opacity: 0 }}>
+		<PageWrapper>
 			<h1>Album</h1>
-		</motion.div>
+		</PageWrapper>
 	);
 };
 

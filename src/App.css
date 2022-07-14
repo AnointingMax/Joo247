@@ -49,7 +49,7 @@ body {
 }
 
 #root {
-    /* max-width: 1440px; */
+    max-width: 1440px;
     margin-inline: auto;
     overflow: hidden;
     position: relative;
@@ -111,6 +111,10 @@ select {
 
 .ml-auto {
     margin-left: auto;
+}
+
+.mx-auto {
+    margin-inline: auto;
 }
 
 .color-grey {
