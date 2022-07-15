@@ -119,7 +119,6 @@ const Nav = styled.nav`
 
 const NavItems = styled.ul`
 	padding-inline: 30px;
-	padding-top: 20px;
 
 	a {
 		text-decoration: none;
@@ -173,7 +172,7 @@ const NavItem = styled.li`
 	font-size: 15px;
 	line-height: 18px;
 	align-items: center;
-	padding-block: 6px;
+	padding-block: 5px;
 	transition: all 0.2s ease-in;
 
 	svg {

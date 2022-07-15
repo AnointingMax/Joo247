@@ -7,9 +7,14 @@ import styled from "styled-components";
 import { device } from "../constants";
 import { useAppContext } from "../context/AppContext";
 
-const TopNav = ({ blur }) => {
+const TopNav = ({ blur, setOpen, setModal }) => {
 	const { isLoggedIn } = useAppContext();
 	const [search, setSearch] = useState("");
+
+	const setModalType = (modal) => {
+		setOpen(true);
+		setModal(modal);
+	};
 
 	return (
 		<Nav id="topNav" blur={blur}>
@@ -18,13 +23,13 @@ const TopNav = ({ blur }) => {
 			</Link>
 			{!isLoggedIn && (
 				<NavLinks role="list">
-					<NavLink>Login</NavLink>
-					<NavLink>Sign Up</NavLink>
+					<NavLink onClick={() => setModalType("login")}>Login</NavLink>
+					<NavLink onClick={() => setModalType("register")}>Sign Up</NavLink>
 				</NavLinks>
 			)}
 
 			<CustomInput
-				className="ml-auto"
+				className="ml-auto nav"
 				value={search}
 				onChange={(event) => setSearch(event.target.value)}
 				placeholder="Search Artist, Songs, Albums"
@@ -37,7 +42,7 @@ const TopNav = ({ blur }) => {
 const Nav = styled.nav`
 	display: flex;
 	align-items: center;
-	padding: 25px 50px;
+	padding: 20px 50px;
 	position: sticky;
 	top: 0;
 	transition: all 1s ease;

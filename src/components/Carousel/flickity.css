@@ -3,8 +3,8 @@ https://flickity.metafizzy.co
 ---------------------------------------------- */
 .flickity-wrap {
     width: 100%;
-    aspect-ratio: 1380/300;
-    margin-bottom: 50px;
+    aspect-ratio: 1380/270;
+    margin-bottom: 30px;
 }
 
 .half {
@@ -159,6 +159,10 @@ https://flickity.metafizzy.co
     border-radius: 50%;
     opacity: 0.25;
     cursor: pointer;
+}
+
+.light .flickity-page-dots .dot {
+    background: black;
 }
 
 .flickity-page-dots .dot.is-selected {

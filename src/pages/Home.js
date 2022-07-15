@@ -4,7 +4,7 @@ import { albums } from "../constants/dummyData";
 const Home = () => {
 	return (
 		<PageWrapper>
-			<Carousel half />
+			<Carousel />
 			<CardSection title="Now Trending" data={albums} />
 			<CardSection title="Favourites" data={albums} />
 			<CardSection title="Recently Played" data={albums} />

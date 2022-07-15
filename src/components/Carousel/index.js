@@ -3,7 +3,7 @@ import Flickity from "react-flickity-component";
 import { CarouselSkeleton } from "../skeletons";
 import "./flickity.css";
 
-const Carousel = ({ half }) => {
+const Carousel = ({ half, light }) => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -27,7 +27,7 @@ const Carousel = ({ half }) => {
 
 	return (
 		<Flickity
-			className={`flickity-wrap ${half ? "half" : ""}`}
+			className={`flickity-wrap ${light ? "light" : ""} ${half ? "half" : ""}`}
 			options={flickityOptions}
 			reloadOnUpdate // default false
 			static // default false

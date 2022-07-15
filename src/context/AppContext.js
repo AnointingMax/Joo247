@@ -11,9 +11,29 @@ const AppProvider = ({ children }) => {
 		job: "Graphics Designer",
 	});
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [playList, setPlayList] = useState([
+		"song1",
+		"song1",
+		"song1",
+		"song1",
+		"song1",
+		"song1",
+		"song1",
+		"song1",
+		"song1",
+	]);
 
 	return (
-		<AppContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn }}>
+		<AppContext.Provider
+			value={{
+				user,
+				setUser,
+				isLoggedIn,
+				setIsLoggedIn,
+				playList,
+				setPlayList,
+			}}
+		>
 			{children}
 		</AppContext.Provider>
 	);

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import hero from "../images/hero-background.png";
 import { device } from "../constants";
-import { TopNav } from "../components";
+import { MusicPlayer, TopNav } from "../components";
 import { useAppContext } from "../context/AppContext";
 import { useState } from "react";
 import Album from "./Album";
@@ -14,9 +14,9 @@ export { Home, Landing, Album, AuthRoutes };
 
 const AppWrapper = () => {
 	const { isLoggedIn } = useAppContext();
-
+	const [open, setOpen] = useState(false);
+	const [modal, setModal] = useState();
 	const [blur, setBlur] = useState(false);
-
 	const changeBackground = (event) => {
 		const { scrollTop } = event.target;
 
@@ -29,14 +29,26 @@ const AppWrapper = () => {
 
 	return (
 		<Wrapper onScroll={changeBackground}>
-			<TopNav blur={blur} />
+			<TopNav blur={blur} setOpen={setOpen} setModal={setModal} />
 			{isLoggedIn ? (
 				<AuthRoutes />
 			) : (
 				<Routes>
-					<Route index path="/" element={<Landing />} />
+					<Route
+						index
+						path="/"
+						element={
+							<Landing
+								open={open}
+								setOpen={setOpen}
+								modal={modal}
+								setModal={setModal}
+							/>
+						}
+					/>
 				</Routes>
 			)}
+			<MusicPlayer />
 		</Wrapper>
 	);
 };
