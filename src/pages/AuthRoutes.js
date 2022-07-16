@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { SideNav } from "../components";
+import { MusicPlayer, SideNav } from "../components";
 import Album from "./Album";
 import Home from "./Home";
 
@@ -22,6 +22,7 @@ const AuthRoutes = () => {
 				<Route index path="/" element={<Home />} />
 				<Route path="/album" element={<Album />} />
 			</Routes>
+			<MusicPlayer />
 		</AnimatePresence>
 	);
 };

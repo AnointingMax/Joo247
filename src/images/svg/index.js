@@ -13,6 +13,8 @@ import { ReactComponent as RecentlyPlayedIcon } from "./recently-played.svg";
 import { ReactComponent as MyPlaylistIcon } from "./my-playlist.svg";
 import { ReactComponent as PlayIcon } from "./play.svg";
 import { ReactComponent as CloseIcon } from "./close.svg";
+import { ReactComponent as EmailIcon } from "./email.svg";
+import { ReactComponent as TickIcon } from "./tick.svg";
 
 export {
 	HomeIcon,
@@ -30,4 +32,6 @@ export {
 	MyPlaylistIcon,
 	PlayIcon,
 	CloseIcon,
+	EmailIcon,
+	TickIcon,
 };

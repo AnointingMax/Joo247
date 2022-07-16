@@ -27,7 +27,7 @@ const Landing = ({ open, setOpen, modal, setModal }) => {
 				<SimpleModal
 					className="test-class"
 					containerClassName="test"
-					closeOnOuterClick={true}
+					closeOnOuterClick={false}
 					show={open}
 					onClose={() => setOpen(false)}
 				>
@@ -56,20 +56,20 @@ const Modal = styled.div`
 		z-index: 99999;
 		transition: opacity 1s ease-in;
 		pointer-events: auto;
-		overflow-y: auto;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		overflow: hidden;
 	}
 
 	.test {
-		width: 400px;
-		max-height: 70%;
+		width: min(400px, 85%);
+		max-height: min(600px, 80%);
 		position: relative;
-		padding: 40px;
 		background: ${(props) => props.theme.black};
 		color: white;
 		border-radius: 18px;
+		overflow-y: scroll;
 	}
 `;
 

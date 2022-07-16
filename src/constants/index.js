@@ -10,7 +10,7 @@ const width = {
 
 const height = {
 	small: "400px",
-	mid: "900px",
+	mid: "800px",
 };
 
 export const device = {
@@ -1311,3 +1311,7 @@ export const roles = [
 		name: "Content Creator",
 	},
 ];
+
+export const countriesIDs = countries.map((country) => country.id);
+
+export const rolesIDs = roles.map((role) => role.id);

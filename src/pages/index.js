@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import hero from "../images/hero-background.png";
 import { device } from "../constants";
-import { MusicPlayer, TopNav } from "../components";
+import { TopNav } from "../components";
 import { useAppContext } from "../context/AppContext";
 import { useState } from "react";
 import Album from "./Album";
@@ -48,7 +48,6 @@ const AppWrapper = () => {
 					/>
 				</Routes>
 			)}
-			<MusicPlayer />
 		</Wrapper>
 	);
 };

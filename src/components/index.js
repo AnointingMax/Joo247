@@ -8,6 +8,7 @@ import PageWrapper from "./PageWrapper";
 import PlayButton from "./PlayButton";
 import MusicPlayer from "./MusicPlayer";
 import Login from "./Login";
+import Loader from "./Loader";
 import Register from "./Register";
 
 export {
@@ -22,4 +23,5 @@ export {
 	MusicPlayer,
 	Login,
 	Register,
+	Loader,
 };

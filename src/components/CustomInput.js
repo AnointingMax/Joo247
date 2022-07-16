@@ -3,12 +3,21 @@ import { device } from "../constants";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
 
-const CustomInput = ({ type, className, leftIcon, data, span, ...others }) => {
+const CustomInput = ({
+	type,
+	className,
+	leftIcon,
+	data,
+	span,
+	error,
+	touched,
+	...others
+}) => {
 	const [see, setSee] = useState(false);
 
 	if (type === "password")
 		return (
-			<Wrapper className={className}>
+			<Wrapper error={error} touched={touched} className={className}>
 				{leftIcon}
 				<input type={see ? "text" : "password"} {...others} />
 				{see ? (
@@ -29,7 +38,7 @@ const CustomInput = ({ type, className, leftIcon, data, span, ...others }) => {
 
 	if (type === "email")
 		return (
-			<Wrapper className={className}>
+			<Wrapper error={error} touched={touched} className={className}>
 				{leftIcon}
 				<input type="email" {...others} />
 			</Wrapper>
@@ -37,7 +46,7 @@ const CustomInput = ({ type, className, leftIcon, data, span, ...others }) => {
 
 	if (type === "checkbox")
 		return (
-			<Label className={className}>
+			<Label error={error} touched={touched} className={className}>
 				<input type="checkbox" {...others} />
 				<span style={{ marginLeft: 5 }}>{span}</span>
 			</Label>
@@ -45,17 +54,17 @@ const CustomInput = ({ type, className, leftIcon, data, span, ...others }) => {
 
 	if (type === "select")
 		return (
-			<Wrapper className={className}>
+			<Wrapper error={error} touched={touched} className={className}>
 				<select {...others}>
 					<option value="" label={others["placeholder"]} disabled />
-					{data.map((entry) => (
-						<option value={entry.id} label={entry.name} />
+					{data.map((entry, index) => (
+						<option key={index} value={entry.id} label={entry.name} />
 					))}
 				</select>
 			</Wrapper>
 		);
 	return (
-		<Wrapper className={className}>
+		<Wrapper error={error} touched={touched} className={className}>
 			{leftIcon}
 			<input type="text" {...others} />
 		</Wrapper>
@@ -63,19 +72,26 @@ const CustomInput = ({ type, className, leftIcon, data, span, ...others }) => {
 };
 
 const Wrapper = styled.div`
+	--horizontal-padding: 20px;
+	--verical-padding: 9px;
+	--error-font-size: 10px;
+	--border-width: 2px;
+
 	display: flex;
 	align-items: center;
-	padding: 9px 20px;
+	padding: var(--verical-padding) var(--horizontal-padding);
 	border-radius: 20px;
 	width: 100%;
+	position: relative;
 	background: ${(props) => props.theme.white};
+	margin-bottom: ${(props) => (props.error && props.touched ? 25 : 20)}px;
 
 	input[type="text"],
 	input[type="email"],
 	input[type="password"] {
 		border: none;
 		outline: none;
-		margin-left: 10px;
+		/* margin-left: 10px; */
 		font-style: normal;
 		font-weight: 700;
 		font-size: 13px;
@@ -112,7 +128,11 @@ const Wrapper = styled.div`
 	}
 
 	&.border-yellow {
-		border: 2px solid ${(props) => props.theme.primaryColor};
+		border: var(--border-width) solid
+			${(props) =>
+				props.error && props.touched
+					? props.theme.red
+					: props.theme.primaryColor};
 	}
 
 	&.short {
@@ -133,11 +153,7 @@ const Wrapper = styled.div`
 		font-weight: 700;
 		font-size: 13px;
 		line-height: 15px;
-
-		// Stack above custom arrow
 		z-index: 1;
-
-		// Remove focus outline, will add on alternate element
 		outline: none;
 	}
 
@@ -146,6 +162,15 @@ const Wrapper = styled.div`
 		@media ${device.tablet} {
 			max-width: 300px;
 		}
+	}
+
+	&:after {
+		content: "${(props) => props.touched && props.error}";
+		color: ${(props) => props.theme.white};
+		position: absolute;
+		left: var(--horizontal-padding);
+		bottom: calc((var(--error-font-size) + (var(--border-width) * 4)) * -1);
+		font-size: 10px;
 	}
 `;
 
@@ -156,6 +181,21 @@ const Label = styled.label`
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 16px;
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+	margin-bottom: ${(props) => (props.error && props.touched ? 30 : 20)}px;
+
+	&:after {
+		content: "${(props) => props.touched && props.error}";
+		color: ${(props) => props.theme.red};
+		position: absolute;
+		left: 50%;
+		bottom: -18px;
+		font-size: 10px;
+		transform: translateX(-50%);
+		width: 100%;
+	}
 `;
 
 export default CustomInput;

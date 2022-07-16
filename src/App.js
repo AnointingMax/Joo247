@@ -273,6 +273,7 @@ function App() {
 			black: "#000000",
 			white: "#FFFFFF",
 			grey: "#AFAFAF",
+			red: "#D32600",
 			value: "10px",
 			sideBarWidth: "220px",
 		}),

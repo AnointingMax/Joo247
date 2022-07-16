@@ -26,25 +26,24 @@ export const Card = ({ data }) => {
 	);
 };
 
-const Section = styled.div`   
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    padding-top: 30px;
-    gap: 25px;
-    margin-bottom: 50px;
-    position: relative;
+const Section = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	padding-top: 30px;
+	gap: 25px;
+	margin-bottom: 50px;
+	position: relative;
 
-    
-    &:before{
-        content: '${(props) => props.name}';
-        position absolute;
-        top: 0;
-        color: ${(props) => props.theme.white};
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 23px;
-    }
+	&:before {
+		content: "${(props) => props.name}";
+		position: absolute;
+		top: 0;
+		color: ${(props) => props.theme.white};
+		font-style: normal;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 23px;
+	}
 `;
 
 const CardWrap = styled.div`
@@ -54,10 +53,6 @@ const CardWrap = styled.div`
 
 	&:hover {
 		transform: scale(1.05);
-	}
-
-	> ${PlayButton} {
-		background-color: white;
 	}
 `;
 
@@ -74,10 +69,5 @@ const CardName = styled.h2`
 	line-height: 14px;
 	color: ${(props) => props.theme.white};
 `;
-
-// const CustomPlayButton = styled(PlayButton)`
-// 	position: absolute;
-// 	top: 0;
-// `;
 
 export default CardSection;

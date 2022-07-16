@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
-import CustomInput from "./CustomInput";
+import { default as Input } from "./CustomInput";
 import { RiSearchLine } from "react-icons/ri";
 import styled from "styled-components";
 import { device } from "../constants";
@@ -81,6 +81,10 @@ const NavLink = styled.li`
 	@media ${device.tablet} {
 		font-size: 0.8525rem;
 	}
+`;
+
+const CustomInput = styled(Input)`
+	margin-bottom: 0 !important;
 `;
 
 export default TopNav;

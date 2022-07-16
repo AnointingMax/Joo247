@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device, deviceHeight } from "../constants";
 import { useAppContext } from "../context/AppContext";
 
 const MusicPlayer = () => {
@@ -17,6 +18,18 @@ const Player = styled.div`
 	left: 0;
 	right: 0;
 	border-top: 2px solid #2b2b2b;
+
+	@media ${device.tablet} {
+		height: 80px;
+	}
+
+	@media ${device.mobileL} {
+		height: 80px;
+	}
+
+	@media ${deviceHeight.mid} {
+		height: 80px;
+	}
 `;
 
 export default MusicPlayer;
