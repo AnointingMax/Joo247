@@ -18,7 +18,7 @@ export const Card = ({ data }) => {
 			<CardWrap>
 				<div style={{ position: "relative" }}>
 					<CardImage src={data.image} />
-					<PlayButton style={{ position: "absolute", bottom: 10, right: 10 }} />
+					<PlayButton style={{ position: "absolute", top: 0, left: 0 }} />
 				</div>
 				<CardName>{data.name}</CardName>
 			</CardWrap>
@@ -48,10 +48,14 @@ const Section = styled.div`
 
 const CardWrap = styled.div`
 	width: 100%;
-	transition: transform 250ms ease;
+	transition: transform 250ms ease, background-color 250ms linear;
+	padding: 10px 5px;
 	position: relative;
+	background-color: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(5px);
 
 	&:hover {
+		background-color: rgba(255, 255, 255, 0.15);
 		transform: scale(1.05);
 	}
 `;
@@ -60,6 +64,7 @@ const CardImage = styled.img`
 	width: 100%;
 	object-fit: contain;
 	margin-bottom: 10px;
+	border-radius: 50%;
 `;
 
 const CardName = styled.h2`
