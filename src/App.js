@@ -1,8 +1,10 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import AppProvider from "./context/AppContext";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import AppWrapper from "./pages";
+import { SearchOverlay } from "./components";
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -115,23 +117,27 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .mr-auto {
-        margin-right: auto;
+        margin-right: auto !important;
     }
 
     .ml-auto {
-        margin-left: auto;
+        margin-left: auto !important;
     }
 
     .mx-auto {
-        margin-inline: auto;
+        margin-inline: auto !important;
     }
 
     .color-grey {
-        color: var(--grey);
+        color: var(--grey) !important;
     }
 
     .color-white {
-        color: var(--white);
+        color: var(--white) !important;
+    }
+    
+    .color-black {
+        color: var(--black) !important;
     }
 
     .mb-1 {
@@ -140,6 +146,10 @@ const GlobalStyle = createGlobalStyle`
 
     .mb-2 {
         margin-bottom: calc(var(--value) * 2);
+    }
+
+    .ml-2 {
+        margin-left: calc(var(--value) * 2);
     }
 
     svg.color-white:hover{
@@ -267,6 +277,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+	const [isOpenOverlay, setIsOpenOverlay] = useState(false);
+
 	const theme = useMemo(
 		() => ({
 			primaryColor: "#FFBC1D",
@@ -275,17 +287,27 @@ function App() {
 			grey: "#AFAFAF",
 			red: "#D32600",
 			value: "10px",
-			sideBarWidth: "220px",
+			sideBarWidth: "215px",
 		}),
 		[]
 	);
+	const isSmallDevice = useMediaQuery({ maxWidth: 768 });
 
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 			<AppProvider>
 				<Router>
-					<AppWrapper />
+					<AppWrapper
+						isSmallDevice={isSmallDevice}
+						setIsOpenOverlay={setIsOpenOverlay}
+					/>
+					{isSmallDevice && (
+						<SearchOverlay
+							isOpenOverlay={isOpenOverlay}
+							setIsOpenOverlay={setIsOpenOverlay}
+						/>
+					)}
 				</Router>
 			</AppProvider>
 		</ThemeProvider>

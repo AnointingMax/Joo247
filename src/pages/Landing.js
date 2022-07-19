@@ -11,7 +11,7 @@ import {
 import { albums } from "../constants/dummyData";
 import { CloseIcon } from "../images/svg";
 
-const Landing = ({ open, setOpen, modal, setModal }) => {
+const Landing = ({ isOpenModal, setIsOpenModal, modal, setModal }) => {
 	useEffect(() => {
 		var obj = document.querySelector("body");
 		obj.setAttribute(
@@ -19,8 +19,9 @@ const Landing = ({ open, setOpen, modal, setModal }) => {
 			"background: linear-gradient(17.23deg, #E4410A 14.33%, #FFBC1D 70.2%);"
 		);
 	}, []);
+
 	return (
-		<PageWrapper page="home">
+		<PageWrapper page="landing">
 			<Carousel light />
 			<CardSection title="Now Trending" data={albums} />
 			<Modal>
@@ -28,10 +29,10 @@ const Landing = ({ open, setOpen, modal, setModal }) => {
 					className="test-class"
 					containerClassName="test"
 					closeOnOuterClick={false}
-					show={open}
-					onClose={() => setOpen(false)}
+					show={isOpenModal}
+					onClose={() => setIsOpenModal(false)}
 				>
-					<Close onClick={() => setOpen(false)}>
+					<Close onClick={() => setIsOpenModal(false)}>
 						<CloseIcon />
 					</Close>
 					{modal === "login" ? (

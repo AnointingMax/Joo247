@@ -1,23 +1,44 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import { default as Input } from "./CustomInput";
 import { RiSearchLine } from "react-icons/ri";
+import { HiUser } from "react-icons/hi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import styled from "styled-components";
 import { device } from "../constants";
 import { useAppContext } from "../context/AppContext";
+import CustomLink from "./CustomLink";
 
-const TopNav = ({ blur, setOpen, setModal }) => {
+const TopNav = ({
+	blur,
+	setIsOpenModal,
+	setModal,
+	isSmallDevice,
+	setIsOpenOverlay,
+	isSideNavOpen,
+	setIsSideNavOpen,
+}) => {
 	const { isLoggedIn } = useAppContext();
+
 	const [search, setSearch] = useState("");
 
 	const setModalType = (modal) => {
-		setOpen(true);
+		setIsOpenModal(true);
 		setModal(modal);
 	};
 
 	return (
 		<Nav id="topNav" blur={blur}>
+			{isSmallDevice && (
+				<GiHamburgerMenu
+					size={24}
+					style={{ marginRight: 15 }}
+					onClick={() =>
+						isSideNavOpen ? setIsSideNavOpen(false) : setIsSideNavOpen(true)
+					}
+				/>
+			)}
 			<Link to="/">
 				<Logo src={logo} alt="logo" />
 			</Link>
@@ -28,13 +49,27 @@ const TopNav = ({ blur, setOpen, setModal }) => {
 				</NavLinks>
 			)}
 
-			<CustomInput
-				className="ml-auto nav"
-				value={search}
-				onChange={(event) => setSearch(event.target.value)}
-				placeholder="Search Artist, Songs, Albums"
-				leftIcon={<RiSearchLine size={24} className="color-grey" />}
-			/>
+			{isSmallDevice ? (
+				<Profile className="ml-auto" onClick={() => setIsOpenOverlay(true)}>
+					<RiSearchLine size={24} className="color-black" />
+				</Profile>
+			) : (
+				<CustomInput
+					className="ml-auto nav"
+					value={search}
+					onChange={(event) => setSearch(event.target.value)}
+					placeholder="Search Artist, Songs, Albums"
+					leftIcon={<RiSearchLine size={24} className="color-grey" />}
+				/>
+			)}
+
+			{isLoggedIn && (
+				<CustomLink to="/">
+					<Profile>
+						<HiUser size={24} className="color-black" />
+					</Profile>
+				</CustomLink>
+			)}
 		</Nav>
 	);
 };
@@ -42,11 +77,11 @@ const TopNav = ({ blur, setOpen, setModal }) => {
 const Nav = styled.nav`
 	display: flex;
 	align-items: center;
-	padding: 20px 50px;
+	padding: 20px 30px;
 	position: sticky;
 	top: 0;
 	transition: all 1s ease;
-	z-index: 1000;
+	z-index: 10;
 
 	${({ blur }) =>
 		blur &&
@@ -56,9 +91,11 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.img`
-	min-width: 35px;
-	aspect-ratio: 1/2;
 	margin-right: 30px;
+
+	@media ${device.tablet} {
+		height: 45px;
+	}
 `;
 
 const NavLinks = styled.ul`
@@ -85,6 +122,16 @@ const NavLink = styled.li`
 
 const CustomInput = styled(Input)`
 	margin-bottom: 0 !important;
+`;
+
+const Profile = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: ${(props) => props.theme.primaryColor};
+	padding: 5px;
+	border-radius: 50%;
+	margin-left: 10px;
 `;
 
 export default TopNav;

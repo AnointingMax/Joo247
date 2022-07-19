@@ -1,6 +1,8 @@
+import { useEffect, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { deviceHeight } from "../constants";
+import { device, deviceHeight } from "../constants";
 import {
 	BrowseIcon,
 	DiscoverIcon,
@@ -17,9 +19,25 @@ import {
 	TopMusicIcon,
 } from "../images/svg";
 
-const SideNav = () => {
+const SideNav = ({ isSideNavOpen, setIsSideNavOpen }) => {
+	const ref = useRef(null);
+	const isSmallDevice = useMediaQuery({ maxWidth: 768 });
+
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (ref.current && !ref.current.contains(event.target)) {
+				setIsSideNavOpen(false);
+			}
+		};
+		document.addEventListener("click", handleClickOutside, true);
+
+		return () => {
+			document.removeEventListener("click", handleClickOutside, true);
+		};
+	}, [setIsSideNavOpen]);
+
 	return (
-		<Nav>
+		<Nav isSmallDevice={isSmallDevice} isSideNavOpen={isSideNavOpen} ref={ref}>
 			<NavItems role="list">
 				<NavLink to="/">
 					<NavItem>
@@ -111,10 +129,25 @@ const SideNav = () => {
 const Nav = styled.nav`
 	position: fixed;
 	width: ${(props) => props.theme.sideBarWidth};
-	background-color: transparent;
-	height: calc(100vh - 120px);
+	background-color: ${(props) =>
+		!props.isSmallDevice
+			? "transparent"
+			: props.isSideNavOpen
+			? "#141414"
+			: "#141414"};
+	height: calc(100vh - 115px - 120px);
 	border-right: 2px solid #2b2b2b;
 	overflow: scroll;
+	z-index: 5;
+	transition: transform 0.5s ease;
+
+	@media ${device.isSmallDevice} {
+		height: calc(100vh - 85px - 100px);
+		${(props) =>
+			props.isSmallDevice && props.isSideNavOpen
+				? "transform:translateX(0%);"
+				: "transform:translateX(-100%);"}
+	}
 `;
 
 const NavItems = styled.ul`
@@ -127,7 +160,6 @@ const NavItems = styled.ul`
 `;
 
 const TitleNavItems = styled(NavItems)`
-	padding-inline: 30px;
 	padding-top: 60px;
 	position: relative;
 
@@ -172,13 +204,13 @@ const NavItem = styled.li`
 	font-size: 15px;
 	line-height: 18px;
 	align-items: center;
-	padding-block: 5px;
+	padding-block: 4px;
 	transition: all 0.2s ease-in;
 
 	svg {
 		margin-right: 10px;
-		width: 30px;
-		height: 30px;
+		width: 27px;
+		height: 27px;
 	}
 
 	path {

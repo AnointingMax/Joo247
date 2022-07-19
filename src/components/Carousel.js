@@ -47,7 +47,7 @@ const Carousel = ({ half, light }) => {
 const Wrapper = styled.div`
 	.flickity-wrap {
 		width: 100%;
-		aspect-ratio: 1380/270;
+		aspect-ratio: 1380/350;
 		margin-bottom: 30px;
 	}
 
@@ -227,7 +227,7 @@ const Wrapper = styled.div`
 
 	@media ${device.mobileL} {
 		.flickity-wrap {
-			aspect-ratio: 1380/650;
+			aspect-ratio: 1380/750;
 		}
 	}
 `;

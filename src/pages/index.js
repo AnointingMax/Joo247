@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import hero from "../images/hero-background.png";
 import { device } from "../constants";
-import { TopNav } from "../components";
+import { MusicPlayer, SideNav, TopNav } from "../components";
 import { useAppContext } from "../context/AppContext";
 import { useState } from "react";
 import Album from "./Album";
@@ -12,26 +12,32 @@ import { Route, Routes } from "react-router-dom";
 
 export { Home, Landing, Album, AuthRoutes };
 
-const AppWrapper = () => {
+const AppWrapper = ({ isSmallDevice, setIsOpenOverlay }) => {
 	const { isLoggedIn } = useAppContext();
-	const [open, setOpen] = useState(false);
-	const [modal, setModal] = useState();
-	const [blur, setBlur] = useState(false);
-	const changeBackground = (event) => {
-		const { scrollTop } = event.target;
 
-		if (scrollTop >= 5) {
-			setBlur(true);
-		} else {
-			setBlur(false);
-		}
-	};
+	const [isOpenModal, setIsOpenModal] = useState(false);
+	const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+	const [modal, setModal] = useState();
 
 	return (
-		<Wrapper onScroll={changeBackground}>
-			<TopNav blur={blur} setOpen={setOpen} setModal={setModal} />
+		<Wrapper>
+			<TopNav
+				setIsOpenModal={setIsOpenModal}
+				setModal={setModal}
+				isSmallDevice={isSmallDevice}
+				setIsOpenOverlay={setIsOpenOverlay}
+				isSideNavOpen={isSideNavOpen}
+				setIsSideNavOpen={setIsSideNavOpen}
+			/>
 			{isLoggedIn ? (
-				<AuthRoutes />
+				<>
+					<SideNav
+						isSideNavOpen={isSideNavOpen}
+						setIsSideNavOpen={setIsSideNavOpen}
+					/>
+					<AuthRoutes />
+					<MusicPlayer />
+				</>
 			) : (
 				<Routes>
 					<Route
@@ -39,8 +45,8 @@ const AppWrapper = () => {
 						path="/"
 						element={
 							<Landing
-								open={open}
-								setOpen={setOpen}
+								isOpenModal={isOpenModal}
+								setIsOpenModal={setIsOpenModal}
 								modal={modal}
 								setModal={setModal}
 							/>
@@ -54,15 +60,17 @@ const AppWrapper = () => {
 
 const Wrapper = styled.div`
 	width: 100%;
-	height: 100vh;
-	overflow-y: scroll;
+	max-height: 100vh;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	backdrop-filter: blur(20px);
 
 	&:before {
 		content: "";
 		z-index: -1;
 		position: absolute;
 		inset: 0;
-		background-image: url(${hero});
+		/* background-image: url(${hero}); */
 		background-repeat: no-repeat;
 		background-position: bottom right;
 		background-size: contain;

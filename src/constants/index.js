@@ -6,6 +6,7 @@ const width = {
 	laptop: "1024px",
 	laptopL: "1440px",
 	desktop: "2560px",
+	isSmallDevice: "768px",
 };
 
 const height = {
@@ -22,6 +23,7 @@ export const device = {
 	laptopL: `(max-width: ${width.laptopL})`,
 	desktop: `(max-width: ${width.desktop})`,
 	desktopL: `(max-width: ${width.desktop})`,
+	isSmallDevice: `(max-width: ${width.isSmallDevice})`,
 };
 
 export const deviceHeight = {

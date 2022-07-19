@@ -98,7 +98,7 @@ const Wrapper = styled.div`
 		line-height: 15px;
 		flex: 1;
 		letter-spacing: 1px;
-		color: ${(props) => props.theme.white};
+		color: ${(props) => props.theme.grey};
 	}
 
 	input::placeholder {
@@ -106,6 +106,7 @@ const Wrapper = styled.div`
 		font-weight: 700;
 		font-size: 13px;
 		line-height: 15px;
+		color: ${(props) => props.theme.grey};
 	}
 
 	&.transparent {
@@ -159,6 +160,11 @@ const Wrapper = styled.div`
 
 	&.nav {
 		max-width: 400px;
+
+		input[type="text"] {
+			color: ${(props) => props.theme.grey};
+		}
+
 		@media ${device.tablet} {
 			max-width: 300px;
 		}

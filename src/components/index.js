@@ -10,6 +10,7 @@ import MusicPlayer from "./MusicPlayer";
 import Login from "./Login";
 import Loader from "./Loader";
 import Register from "./Register";
+import SearchOverlay from "./SearchOverlay";
 
 export {
 	CustomInput,
@@ -24,4 +25,5 @@ export {
 	Login,
 	Register,
 	Loader,
+	SearchOverlay,
 };
