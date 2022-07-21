@@ -15,6 +15,10 @@ import { ReactComponent as PlayIcon } from "./play.svg";
 import { ReactComponent as CloseIcon } from "./close.svg";
 import { ReactComponent as EmailIcon } from "./email.svg";
 import { ReactComponent as TickIcon } from "./tick.svg";
+import { ReactComponent as AddProfileIcon } from "./add-profile.svg";
+import { ReactComponent as AccountIcon } from "./account.svg";
+import { ReactComponent as LabelIcon } from "./label.svg";
+import { ReactComponent as IDIcon } from "./id.svg";
 
 export {
 	HomeIcon,
@@ -34,4 +38,8 @@ export {
 	CloseIcon,
 	EmailIcon,
 	TickIcon,
+	AddProfileIcon,
+	AccountIcon,
+	LabelIcon,
+	IDIcon,
 };

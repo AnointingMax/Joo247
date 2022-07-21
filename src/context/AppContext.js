@@ -23,6 +23,8 @@ const AppProvider = ({ children }) => {
 		"song1",
 	]);
 
+	const [currentSong, setCurrentSong] = useState("null");
+
 	return (
 		<AppContext.Provider
 			value={{
@@ -32,6 +34,8 @@ const AppProvider = ({ children }) => {
 				setIsLoggedIn,
 				playList,
 				setPlayList,
+				currentSong,
+				setCurrentSong,
 			}}
 		>
 			{children}

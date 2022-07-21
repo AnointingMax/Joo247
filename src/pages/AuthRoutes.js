@@ -2,8 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Album from "./Album";
-import Home from "./Home";
+import { Details, Album, Home } from ".";
 
 const AuthRoutes = () => {
 	useEffect(() => {
@@ -17,6 +16,7 @@ const AuthRoutes = () => {
 			<AnimatePresence exitBeforeEnter>
 				<Routes location={location} key={location.pathname}>
 					<Route index path="/" element={<Home />} />
+					<Route path="/details" element={<Details />} />
 					<Route path="/album" element={<Album />} />
 				</Routes>
 			</AnimatePresence>
@@ -25,7 +25,7 @@ const AuthRoutes = () => {
 };
 
 const Container = styled.div`
-	height: 100vh;
+	height: calc(100vh - 115px);
 	overflow-y: scroll;
 `;
 

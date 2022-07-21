@@ -11,6 +11,11 @@ import Login from "./Login";
 import Loader from "./Loader";
 import Register from "./Register";
 import SearchOverlay from "./SearchOverlay";
+import AccountDetails from "./AccountDetails";
+import SelectGenre from "./SelectGenre";
+import SetProfileImage from "./SetProfileImage";
+import IDVerification from "./IDVerification";
+import LabelInfo from "./LabelInfo";
 
 export {
 	CustomInput,
@@ -26,4 +31,9 @@ export {
 	Register,
 	Loader,
 	SearchOverlay,
+	AccountDetails,
+	SelectGenre,
+	SetProfileImage,
+	IDVerification,
+	LabelInfo,
 };

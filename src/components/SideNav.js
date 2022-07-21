@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { device, deviceHeight } from "../constants";
 import {
@@ -20,6 +20,7 @@ import {
 } from "../images/svg";
 
 const SideNav = ({ isSideNavOpen, setIsSideNavOpen }) => {
+	let location = useLocation();
 	const ref = useRef(null);
 	const isSmallDevice = useMediaQuery({ maxWidth: 768 });
 
@@ -35,6 +36,8 @@ const SideNav = ({ isSideNavOpen, setIsSideNavOpen }) => {
 			document.removeEventListener("click", handleClickOutside, true);
 		};
 	}, [setIsSideNavOpen]);
+
+	if (location.pathname === "/details") return null;
 
 	return (
 		<Nav isSmallDevice={isSmallDevice} isSideNavOpen={isSideNavOpen} ref={ref}>
@@ -136,7 +139,6 @@ const Nav = styled.nav`
 			? "#141414"
 			: "#141414"};
 	height: calc(100vh - 115px - 120px);
-	border-right: 2px solid #2b2b2b;
 	overflow: scroll;
 	z-index: 5;
 	transition: transform 0.5s ease;
@@ -204,13 +206,13 @@ const NavItem = styled.li`
 	font-size: 15px;
 	line-height: 18px;
 	align-items: center;
-	padding-block: 4px;
+	padding-block: 6px;
 	transition: all 0.2s ease-in;
 
 	svg {
 		margin-right: 10px;
-		width: 27px;
-		height: 27px;
+		width: 25px;
+		aspect-ratio: 1;
 	}
 
 	path {
@@ -222,7 +224,13 @@ const NavItem = styled.li`
 	}
 
 	@media ${deviceHeight.mid} {
-		padding-block: 3px;
+		padding-block: 5px;
+
+		svg {
+			margin-right: 10px;
+			width: 20px;
+			aspect-ratio: 1;
+		}
 	}
 `;
 

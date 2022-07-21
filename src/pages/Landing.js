@@ -21,7 +21,7 @@ const Landing = ({ isOpenModal, setIsOpenModal, modal, setModal }) => {
 	}, []);
 
 	return (
-		<PageWrapper page="landing">
+		<Wrapper page="landing">
 			<Carousel light />
 			<CardSection title="Now Trending" data={albums} />
 			<Modal>
@@ -42,9 +42,14 @@ const Landing = ({ isOpenModal, setIsOpenModal, modal, setModal }) => {
 					)}
 				</SimpleModal>
 			</Modal>
-		</PageWrapper>
+		</Wrapper>
 	);
 };
+
+const Wrapper = styled(PageWrapper)`
+	height: 100vh;
+	overflow-y: scroll;
+`;
 
 const Modal = styled.div`
 	.test-class {

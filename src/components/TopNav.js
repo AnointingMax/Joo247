@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../images/logo.png";
 import { default as Input } from "./CustomInput";
 import { RiSearchLine } from "react-icons/ri";
@@ -20,6 +20,7 @@ const TopNav = ({
 	setIsSideNavOpen,
 }) => {
 	const { isLoggedIn } = useAppContext();
+	let location = useLocation();
 
 	const [search, setSearch] = useState("");
 
@@ -27,6 +28,15 @@ const TopNav = ({
 		setIsOpenModal(true);
 		setModal(modal);
 	};
+
+	if (location.pathname === "/details")
+		return (
+			<Nav id="topNav" blur={blur}>
+				<Link to="/">
+					<Logo src={logo} alt="logo" />
+				</Link>
+			</Nav>
+		);
 
 	return (
 		<Nav id="topNav" blur={blur}>

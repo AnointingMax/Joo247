@@ -8,9 +8,10 @@ import Album from "./Album";
 import AuthRoutes from "./AuthRoutes";
 import Landing from "./Landing";
 import Home from "./Home";
+import Details from "./Details";
 import { Route, Routes } from "react-router-dom";
 
-export { Home, Landing, Album, AuthRoutes };
+export { Home, Landing, Album, AuthRoutes, Details };
 
 const AppWrapper = ({ isSmallDevice, setIsOpenOverlay }) => {
 	const { isLoggedIn } = useAppContext();
