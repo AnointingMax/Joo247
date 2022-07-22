@@ -33,14 +33,6 @@ const Wrapper = styled(motion.div)`
 		props.isLoggedIn && props.currentSong
 			? "padding-bottom: 120px;"
 			: "padding-bottom: 0;"}
-	${(props) =>
-		props.page !== "landing"
-			? "border-left: 2px solid #2b2b2b;"
-			: "border-left: none;"}
-
-    @media ${device.tablet} {
-		border-left: none !important;
-	}
 `;
 
 export default PageWrapper;

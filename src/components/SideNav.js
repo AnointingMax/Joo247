@@ -141,11 +141,13 @@ const Nav = styled.nav`
 			? "#141414"
 			: "#141414"};
 	height: calc(100vh - 115px - 120px);
+	border-right: 2px solid #2b2b2b;
 	overflow: scroll;
 	z-index: 5;
 	transition: transform 0.5s ease;
 
-	@media ${device.isSmallDevice} {
+	@media ${device.tablet} {
+		border-right: none !important;
 		height: calc(100vh - 85px - 100px);
 		${(props) =>
 			props.isSmallDevice && props.isSideNavOpen
