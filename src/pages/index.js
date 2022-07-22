@@ -61,7 +61,7 @@ const AppWrapper = ({ isSmallDevice, setIsOpenOverlay }) => {
 
 const Wrapper = styled.div`
 	width: 100%;
-	max-height: 100vh;
+	height: 100%;
 	overflow-y: hidden;
 	overflow-x: hidden;
 	backdrop-filter: blur(20px);

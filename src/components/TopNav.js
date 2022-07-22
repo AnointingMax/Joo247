@@ -16,7 +16,6 @@ const TopNav = ({
 	setModal,
 	isSmallDevice,
 	setIsOpenOverlay,
-	isSideNavOpen,
 	setIsSideNavOpen,
 }) => {
 	const { isLoggedIn } = useAppContext();
@@ -40,13 +39,12 @@ const TopNav = ({
 
 	return (
 		<Nav id="topNav" blur={blur}>
-			{isSmallDevice && (
+			{isLoggedIn && isSmallDevice && (
 				<GiHamburgerMenu
 					size={24}
 					style={{ marginRight: 15 }}
-					onClick={() =>
-						isSideNavOpen ? setIsSideNavOpen(false) : setIsSideNavOpen(true)
-					}
+					className="color-primary"
+					onClick={() => setIsSideNavOpen((prevState) => !prevState)}
 				/>
 			)}
 			<Link to="/">

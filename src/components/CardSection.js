@@ -53,6 +53,7 @@ const CardWrap = styled.div`
 	position: relative;
 	background-color: rgba(255, 255, 255, 0.05);
 	backdrop-filter: blur(5px);
+	overflow: hidden;
 
 	&:hover {
 		background-color: rgba(255, 255, 255, 0.15);
@@ -72,6 +73,10 @@ const CardName = styled.h2`
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 14px;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	color: ${(props) => props.theme.white};
 `;
 

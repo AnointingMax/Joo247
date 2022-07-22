@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
+import { device } from "../constants";
 import { useAppContext } from "../context/AppContext";
 
 const PageWrapper = ({ children, ...others }) => {
@@ -36,6 +37,10 @@ const Wrapper = styled(motion.div)`
 		props.page !== "landing"
 			? "border-left: 2px solid #2b2b2b;"
 			: "border-left: none;"}
+
+    @media ${device.tablet} {
+		border-left: none !important;
+	}
 `;
 
 export default PageWrapper;

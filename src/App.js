@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
 
     /* Set core body defaults */
     body {
-        min-height: 100vh;
+        height: 100vh;
         text-rendering: optimizeSpeed;
         line-height: 1.5;
         font-family: Raleway, sans-serif;
@@ -62,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
         margin-inline: auto;
         overflow: hidden;
         position: relative;
-        min-height: 100vh;
+        height: 100vh;
     }
 
     /* A elements that don't have a class get default styles */
@@ -138,6 +138,10 @@ const GlobalStyle = createGlobalStyle`
     
     .color-black {
         color: var(--black) !important;
+    }
+    
+    .color-primary {
+        color: var(--primary-color) !important;
     }
 
     .mb-1 {

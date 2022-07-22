@@ -31,9 +31,11 @@ const SideNav = ({ isSideNavOpen, setIsSideNavOpen }) => {
 			}
 		};
 		document.addEventListener("click", handleClickOutside, true);
+		document.addEventListener("scroll", handleClickOutside, true);
 
 		return () => {
 			document.removeEventListener("click", handleClickOutside, true);
+			document.removeEventListener("scroll", handleClickOutside, true);
 		};
 	}, [setIsSideNavOpen]);
 
