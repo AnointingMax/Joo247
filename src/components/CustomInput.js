@@ -74,7 +74,7 @@ const CustomInput = ({
 const Wrapper = styled.div`
 	--horizontal-padding: 20px;
 	--verical-padding: 9px;
-	--error-font-size: 10px;
+	--error-font-size: 1rem;
 	--border-width: 2px;
 
 	display: flex;
@@ -94,8 +94,8 @@ const Wrapper = styled.div`
 		/* margin-left: 10px; */
 		font-style: normal;
 		font-weight: 700;
-		font-size: 13px;
-		line-height: 15px;
+		font-size: 1.3rem;
+		line-height: 1.5rem;
 		flex: 1;
 		letter-spacing: 1px;
 		color: ${(props) => props.theme.grey};
@@ -104,8 +104,8 @@ const Wrapper = styled.div`
 	input::placeholder {
 		font-style: normal;
 		font-weight: 700;
-		font-size: 13px;
-		line-height: 15px;
+		font-size: 1.3rem;
+		line-height: 1.5rem;
 		color: ${(props) => props.theme.grey};
 	}
 
@@ -146,14 +146,13 @@ const Wrapper = styled.div`
 		margin: 0;
 		width: 100%;
 		font-family: inherit;
-		font-size: inherit;
 		cursor: inherit;
 		color: ${(props) => props.theme.white};
 		line-height: inherit;
 		font-style: normal;
 		font-weight: 700;
-		font-size: 13px;
-		line-height: 15px;
+		font-size: 1.3rem;
+		line-height: 1.5rem;
 		z-index: 1;
 		outline: none;
 	}
@@ -176,7 +175,7 @@ const Wrapper = styled.div`
 		position: absolute;
 		left: var(--horizontal-padding);
 		bottom: calc((var(--error-font-size) + (var(--border-width) * 4)) * -1);
-		font-size: 10px;
+		font-size: 1rem;
 	}
 `;
 
@@ -185,8 +184,8 @@ const Label = styled.label`
 	align-items: center;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
 	cursor: pointer;
 	position: relative;
 	text-align: center;
@@ -198,7 +197,7 @@ const Label = styled.label`
 		position: absolute;
 		left: 50%;
 		bottom: -18px;
-		font-size: 10px;
+		font-size: 1rem;
 		transform: translateX(-50%);
 		width: 100%;
 	}

@@ -212,8 +212,8 @@ const Form = styled.form`
 const Header = styled.h2`
 	font-style: normal;
 	font-weight: 700;
-	font-size: 26px;
-	line-height: 31px;
+	font-size: 2.6rem;
+	line-height: 3.1rem;
 	color: ${(props) => props.theme.white};
 `;
 
@@ -225,7 +225,7 @@ const Row = styled.div`
 	> * {
 		font-style: normal;
 		font-weight: 500;
-		font-size: 11px;
+		font-size: 1.1rem;
 	}
 
 	.yellow {
@@ -238,8 +238,8 @@ const Link = styled(Anchor)`
 	text-decoration: none;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
 	display: inline;
 
 	&:hover {
@@ -252,8 +252,8 @@ const Link2 = styled.span`
 	text-decoration: none;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
 	display: inline;
 
 	&:hover {
@@ -266,8 +266,8 @@ const Button = styled.button`
 	color: ${(props) => props.theme.white};
 	font-style: normal;
 	font-weight: 700;
-	font-size: 24px;
-	line-height: 35px;
+	font-size: 2.4rem;
+	line-height: 3.5rem;
 	padding: 4px;
 	border: none;
 	border-radius: 50px;
@@ -282,8 +282,8 @@ const Button = styled.button`
 const Text = styled.span`
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
 	display: inline;
 `;
 
@@ -301,8 +301,8 @@ const Wrapper = styled.div`
 const H2 = styled.h2`
 	font-style: normal;
 	font-weight: 700;
-	font-size: 32px;
-	line-height: 47px;
+	font-size: 3.2rem;
+	line-height: 4.7rem;
 	text-align: center;
 	margin-block: 20px;
 `;
@@ -310,8 +310,8 @@ const H2 = styled.h2`
 const H3 = styled.h3`
 	font-style: normal;
 	font-weight: 500;
-	font-size: 23px;
-	line-height: 27px;
+	font-size: 2.3rem;
+	line-height: 2.7rem;
 	text-align: center;
 	margin-bottom: 20px;
 `;
@@ -319,8 +319,8 @@ const H3 = styled.h3`
 const H4 = styled.h3`
 	font-style: normal;
 	font-weight: 500;
-	font-size: 18px;
-	line-height: 27px;
+	font-size: 1.8rem;
+	line-height: 2.7rem;
 	text-align: center;
 	margin-bottom: 20px;
 `;

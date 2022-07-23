@@ -175,8 +175,8 @@ const TitleNavItems = styled(NavItems)`
 		top: 40px;
 		font-style: normal;
 		font-weight: 700;
-		font-size: 15px;
-		line-height: 18px;
+		font-size: 1.5rem;
+		line-height: 1.8rem;
 		color: white;
 	}
 
@@ -194,8 +194,8 @@ const TitleNavItems = styled(NavItems)`
 			top: 20px;
 			font-style: normal;
 			font-weight: 700;
-			font-size: 15px;
-			line-height: 18px;
+			font-size: 1.5rem;
+			line-height: 1.8rem;
 			color: white;
 		}
 	}
@@ -207,8 +207,8 @@ const NavItem = styled.li`
 	opacity: 0.7;
 	font-style: normal;
 	font-weight: 700;
-	font-size: 15px;
-	line-height: 18px;
+	font-size: 1.5rem;
+	line-height: 1.8rem;
 	align-items: center;
 	padding-block: 6px;
 	transition: all 0.2s ease-in;

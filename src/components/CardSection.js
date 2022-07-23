@@ -41,8 +41,8 @@ const Section = styled.div`
 		color: ${(props) => props.theme.white};
 		font-style: normal;
 		font-weight: 700;
-		font-size: 20px;
-		line-height: 23px;
+		font-size: 2rem;
+		line-height: 2.3rem;
 	}
 `;
 
@@ -71,8 +71,8 @@ const CardImage = styled.img`
 const CardName = styled.h2`
 	font-style: normal;
 	font-weight: 700;
-	font-size: 16px;
-	line-height: 14px;
+	font-size: 1.6rem;
+	line-height: 1.4rem;
 	width: 100%;
 	white-space: nowrap;
 	overflow: hidden;

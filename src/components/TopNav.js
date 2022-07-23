@@ -114,17 +114,12 @@ const NavLink = styled.li`
 	color: ${(props) => props.theme.white};
 	font-style: normal;
 	font-weight: 700;
-	font-size: 17px;
-	line-height: 20px;
+	font-size: 1.7rem;
+	line-height: 2rem;
 	margin-right: 30px;
 
 	&:hover {
-		color: ${(props) => props.theme.primaryColor};
 		cursor: pointer;
-	}
-
-	@media ${device.tablet} {
-		font-size: 0.8525rem;
 	}
 `;
 

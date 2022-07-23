@@ -10,7 +10,7 @@ const AppProvider = ({ children }) => {
 			"https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2021/09/featured-image-interior-designer.jpeg.jpg",
 		job: "Graphics Designer",
 	});
-	const [isLoggedIn, setIsLoggedIn] = useState(true);
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [playList, setPlayList] = useState([
 		"song1",
 		"song1",

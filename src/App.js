@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import AppWrapper from "./pages";
 import { SearchOverlay } from "./components";
+import { device } from "./constants";
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -13,6 +14,16 @@ const GlobalStyle = createGlobalStyle`
         --white: #FFFFFF;
         --grey: #AFAFAF;
         --value: 10px;
+    }
+
+    html{
+        font-size: 10px;
+    }
+
+    @media ${device.tablet}{
+        html{
+            font-size: 9px;
+        }
     }
 
     /* Box sizing rules */
@@ -251,7 +262,7 @@ const GlobalStyle = createGlobalStyle`
 
     input[type="checkbox"]+label,
     input[type="radio"]+label {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         line-height: 21px;
         display: inline-block;
         vertical-align: top;

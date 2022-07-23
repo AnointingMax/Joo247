@@ -116,7 +116,7 @@ const Form = styled.form`
 		color: ${(props) => props.theme.red};
 		font-weight: 400;
 		margin-top: 3px;
-		font-size: 12px;
+		font-size: 1.2rem;
 		font-weight: 600;
 		align-self: flex-start;
 	}
@@ -125,8 +125,8 @@ const Form = styled.form`
 const Title = styled.h2`
 	font-style: normal;
 	font-weight: 700;
-	font-size: 30px;
-	line-height: 35px;
+	font-size: 3rem;
+	line-height: 3.5rem;
 	color: ${(props) => props.theme.white};
 	margin-bottom: 25px;
 `;
@@ -153,8 +153,8 @@ const Select = styled.select`
 	font-style: normal;
 	font-weight: 500;
 	border: none;
-	font-size: 15px;
-	line-height: 18px;
+	font-size: 1.5rem;
+	line-height: 1.8rem;
 	color: #707070;
 	position: relative;
 
@@ -180,8 +180,8 @@ const Input = styled.input`
 	border: none;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 15px;
-	line-height: 18px;
+	font-size: 1.5rem;
+	line-height: 1.8rem;
 	color: #707070;
 
 	&:focus {

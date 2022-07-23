@@ -113,8 +113,8 @@ const Logo = styled.img`
 const Header = styled.h2`
 	font-style: normal;
 	font-weight: 700;
-	font-size: 26px;
-	line-height: 31px;
+	font-size: 1.6rem;
+	line-height: 3.1rem;
 	color: ${(props) => props.theme.white};
 `;
 
@@ -148,8 +148,8 @@ const Link = styled(Anchor)`
 	text-decoration: none;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
 	display: inline;
 
 	&:hover {
@@ -166,8 +166,8 @@ const Link2 = styled.span`
 	text-decoration: none;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
 	display: inline;
 
 	&:hover {
@@ -180,8 +180,8 @@ const Button = styled.button`
 	color: ${(props) => props.theme.white};
 	font-style: normal;
 	font-weight: 700;
-	font-size: 24px;
-	line-height: 35px;
+	font-size: 2.4rem;
+	line-height: 3.5rem;
 	padding: 4px;
 	border: none;
 	border-radius: 50px;
@@ -196,8 +196,8 @@ const Button = styled.button`
 const Text = styled.span`
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
 	display: inline;
 `;
 
